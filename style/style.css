@@ -1,0 +1,98 @@
+
+
+.container {
+    text-align: center;
+}
+
+.title{
+    font-size: 50px;
+    text-align: center;
+    margin: 5px;
+}
+
+.row {
+    display: flex;
+}
+
+
+.column {
+    flex: 50%;
+    padding: 5px;
+
+}
+
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+}
+
+input[type="text"]{
+    width: 300px;
+    border-radius: 2px;
+    border: 1px solid #CCC;
+    padding: 10px;
+    color: #333;
+    font-size: 14px;
+
+}
+
+
+.inputValue{
+    width: 50px;
+    border-radius: 2px;
+    border: 1px solid #CCC;
+    padding: 10px;
+    color: #333;
+    font-size: 14px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.color{
+    margin-right: 5px;
+}
+
+/*.width {*/
+/*    width: x;*/
+/*    border-radius: 2px;*/
+/*    border: 1px solid #CCC;*/
+/*    padding: 10px;*/
+/*    color: #333;*/
+/*    font-size: 14px;*/
+/*    margin-top: 10px;*/
+/*    margin-bottom: 10px;*/
+/*}*/
+
+button {
+    padding: 10px 25px 8px;
+    color: #fff;
+    background-color: #0067ab;
+    text-shadow: rgba(0,0,0,0.24) 0 1px 0;
+    font-size: 16px;
+    box-shadow: rgba(255,255,255,0.24) 0 2px 0 0 inset,#fff 0 1px 0 0;
+    border: 1px solid #0164a5;
+    border-radius: 2px;
+    cursor:pointer;
+    margin-left: 5px;
+}
+button:hover {
+    background-color: #024978;
+}
+
+li {
+    display: inline;
+
+}
+
+ul{
+    list-style-type: none; /* Remove bullets */
+    margin-top: 2px;
+    padding: 0;
+}
+
+
+
