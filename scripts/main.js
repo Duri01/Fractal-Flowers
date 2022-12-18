@@ -1,5 +1,7 @@
 let counter,tmp = 0;
 let canvas;
+let obj;
+var colorValue;
 
 //Definition of the tree class.
 function tree() {
@@ -90,7 +92,7 @@ tree.prototype.initialAssign = function(text,len){
 
 //Assigns colors to different parts of tree
 tree.prototype.colorAssign = function() {
-    var colorValue;
+
     if(this.branchValue > 5){
         colorValue = document.getElementById("colorSet5").value;
     }
@@ -262,10 +264,26 @@ function setup() {
         saveCanvas(canvas, 'myCanvas.jpg');
     });
 
+    var saveObjectButton = document.getElementById("saveObjectButton");
+    saveObjectButton.addEventListener("click", function() {
+        exportJson();
+    });
+
 
     canvas = createCanvas(800,700);
     background(51);
     treeObject.draw();
+
+}
+
+function exportJson(){
+
+    let json = {}; // new  JSON Object
+
+    json.colorValue = colorValue;
+
+    saveJSON(json, 'test.json');
+
 
 }
 
