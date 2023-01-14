@@ -21,6 +21,14 @@
 
 }
 
+#trials{
+    padding-top: 10px;
+}
+
+#bgColorSet{
+    margin-right: 10px;
+}
+
 canvas {
     padding-left: 0;
     padding-right: 0;
@@ -42,7 +50,7 @@ input[type="text"]{
 
 
 .inputValue{
-    width: 50px;
+    width: 30px;
     border-radius: 2px;
     border: 1px solid #CCC;
     padding: 10px;
@@ -93,6 +101,8 @@ ul{
     margin-top: 2px;
     padding: 0;
 }
+
+
 
 
 

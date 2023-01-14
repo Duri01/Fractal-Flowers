@@ -2,6 +2,11 @@ let counter,tmp = 0;
 let canvas;
 let obj;
 var colorValue;
+let img;
+let imagesArray = [];
+let file;
+
+
 
 //Definition of the tree class.
 function tree() {
@@ -111,11 +116,22 @@ tree.prototype.draw = function() {
     colorValue = color(document.getElementById("bgColorSet").value);
     fill(colorValue);
     rect(0,0,width,height);
+    if (img != null){
+        image(img, 0, 0, 700, 600);
+    }
+
     resetMatrix();
     translate(width / 2, height);
 
     for (var i = 0; i < this.weight.length; i++) {
-        this.weight[i]= document.getElementById("widthSet" + (i+1)).value;
+        if(document.getElementById("randomWidth").checked==true){
+            let randNumWidth = randomNumber(2, 8);
+            this.weight[i] = randNumWidth;
+            document.getElementById("widthSet" + (i + 1)).value = randNumWidth;
+        }
+        else {
+            this.weight[i] = document.getElementById("widthSet" + (i + 1)).value;
+        }
     };
 
     for (var i = 0; i < this.sentence.length; i++) {
@@ -136,6 +152,16 @@ tree.prototype.draw = function() {
             else{
                 this.colorAssign();
             }
+
+            if(document.getElementById("randomAngle").checked==true){
+                let randNumAngle = randomNumber(10, 90);
+                this.angle = radians(randNumAngle);
+                document.getElementById("angle").value = randNumAngle;
+            }
+
+
+
+
 
             line(0, 0, 0, -this.len);
             translate(0, -this.len);
@@ -187,6 +213,7 @@ function create(text) {
     document.getElementById("trials").appendChild(li);
 }
 
+
 //Runs on loading.
 function setup() {
 
@@ -212,13 +239,15 @@ function setup() {
         counter = 1;
     }
 
-
-
-
     var primaryTree = document.getElementById("primaryTree");
     primaryTree.addEventListener("click", function() {
         var angle = document.getElementById("angle").value;
         treeObject.angle = radians(angle);
+        if (document.getElementById("randomLength").checked==true){
+            let randNumLength = randomNumber(50, 200);
+            this.len = randNumLength;
+            document.getElementById("length").value = randNumLength;
+        }
         treeObject.initialAssign(document.getElementById("input").value, document.getElementById("length").value);
         treeObject.generate();
         treeObject.draw();
@@ -269,22 +298,45 @@ function setup() {
         exportJson();
     });
 
+    var cancel = document.getElementById("cancel");
+    cancel.addEventListener("click", function() {
+        img = null;
+        imagesArray = [];
+        document.getElementById("upload").value = null;
+    });
 
-    canvas = createCanvas(800,700);
-    background(51);
+    var input = document.getElementById("upload");
+    input.addEventListener("change", () => {
+        file = input.files;
+        imagesArray.push(file[0]);
+        loadImages();
+    });
+
+    canvas = createCanvas(700,600);
+    background(50);
     treeObject.draw();
 
 }
 
-function exportJson(){
+// function exportJson(){
+//
+//     let json = {}; // new  JSON Object
+//
+//     json.colorValue = colorValue;
+//
+//     saveJSON(json, 'test.json');
+//
+//
+// }
 
-    let json = {}; // new  JSON Object
-
-    json.colorValue = colorValue;
-
-    saveJSON(json, 'test.json');
-
+function loadImages() {
+    imagesArray.forEach((imagesss) => {
+        img = loadImage(URL.createObjectURL(imagesss));
+    })
 
 }
 
-
+function randomNumber(min, max) {
+    let random = Math.random() * (max - min) + min
+    return Math.round(random);;
+}

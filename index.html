@@ -23,10 +23,15 @@
         Rule : F = <input type="text" id="input" placeholder="Primary branch design" class="inputValue">
 
         Length : <input type="number" id="length" value=75 class="inputValue">
+        <input type="checkbox" value="None" id="randomLength" name="check" /> Random
 
-        Angle :  <input type="number" id="angle" value=25 class="inputValue">
-
+        &nbsp&nbsp&nbsp&nbsp Angle : <input type="number" id="angle" value=25 class="inputValue">
+        <input type="checkbox" value="None" id="randomAngle" name="check" /> Random
+        <br>
         Background Color : <input type="color" id="bgColorSet" value="#000000">
+        Background Image : <input id="upload" type="file" accept="image/jpeg, image/png, image/jpg">
+        <button id="cancel">Cancel Background Image</button>
+
 
         <ul id="trials">
             Options:&nbsp;
@@ -55,6 +60,8 @@
         <input type="checkbox" value="None" id="trippyColor" name="check" />
         <label for="trippyColor">Trippy Color</label>
 
+        <input type="checkbox" value="None" id="randomWidth" name="check" /> Random Width
+
         <br>
 
 
@@ -73,6 +80,7 @@
         <button id="saveImageButton">Save Image</button>
         <button id="saveObjectButton">Save Object</button>
         <button id="loadObjectButton">Load Object</button>
+
     </div>
 </div>
 
