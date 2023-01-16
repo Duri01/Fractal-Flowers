@@ -244,7 +244,7 @@ function setup() {
         var angle = document.getElementById("angle").value;
         treeObject.angle = radians(angle);
         if (document.getElementById("randomLength").checked==true){
-            let randNumLength = randomNumber(50, 200);
+            let randNumLength = randomNumber(50, 300);
             this.len = randNumLength;
             document.getElementById("length").value = randNumLength;
         }
