@@ -293,10 +293,10 @@ function setup() {
         saveCanvas(canvas, 'myCanvas.jpg');
     });
 
-    var saveObjectButton = document.getElementById("saveObjectButton");
-    saveObjectButton.addEventListener("click", function() {
-        exportJson();
-    });
+    // var saveObjectButton = document.getElementById("saveObjectButton");
+    // saveObjectButton.addEventListener("click", function() {
+    //     exportJson();
+    // });
 
     var cancel = document.getElementById("cancel");
     cancel.addEventListener("click", function() {
